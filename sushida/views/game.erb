@@ -1,0 +1,115 @@
+<%# 
+方針
+・スコアを初期を0にしてクリアすると更新していきたい
+・画像が綺麗に収まるようにする
+　%>
+<%
+wordlist = [["つかれた","tuka<br>reta"],["じかんをください","jikannwo<br>kudasai"],["きょうはあついです","kyouha<br>atuidesu"],["げんきがいっぱいです","genkiga<br>ippaidesu"],["それではもういちど","soredehamouitido"],["はらへった","harahetta"],["ねむい","nemui"] ,["ざぎんのしーすー","zaginnno<br>si-su-"],["もうたべられない","moutaberarenai"],["やさいましましのこいめで","yasaimasimasinokoimede"],["らーめんはのみもの","ra-mennhanomimono"]]
+random = wordlist.sample
+wordrandomk = random[0]
+wordrandome = random[1]
+
+score = params[:score].to_i
+if params[:add_score]
+    score+=params[:add_score].to_i
+end
+
+
+intx = params[:input]
+photo_list =["1.jpeg","2.jpeg","3.jpeg","4.jpeg","5.jpeg","6.jpeg","7.jpeg","8.jpeg","9.jpeg","10.jpeg"]
+photo = photo_list.sample
+%>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body{
+        margin:0;
+        background-size:contain;
+        margin: 0 auto; 
+        width:50ex; 
+        height:400px;
+        background-image: url("/images/<%=photo%>");
+        background-repeat:  no-repeat;
+        background-position:center center; 
+        background-size:cover;                 
+        width:80%;                             
+        padding: 80px;
+        
+    }
+    div{
+        
+    }
+    .nomal{
+        background-color: rgba(255, 255, 255, 0.52); 
+        padding:5px;
+        text-align:center;
+    }
+    .score{
+        background-color: rgba(255, 255, 255, 0.52); 
+        width:5ex; 
+        padding:5px;
+        margin:0 0 0 auto;
+    }
+    a{
+        padding:5px
+    }
+    #changed{
+        color: red;
+    }
+    </style>
+</head>
+<body>
+    <div>
+        <h2 class="score" ><%=p score%></h2>
+        <h1 class="nomal" style="text_align: center;"><%=wordrandomk%></h1>
+        <h2 style="height: 80px;" class="nomal" style="text_align: center;">
+            <span id="changed"></span><span id="change"><%=wordrandome%></span>
+        </h2>
+        
+        <form action="/game" method="get" id = "form">
+            <input id="add_score" type="hidden" name="add_score">
+            
+        </form>
+        <a class="score" href="/">トップに戻る</a>
+    </div>
+
+
+    <script>
+        document.addEventListener('keypress', keypress_ivent);
+        // 入力する文字の位置情報取得
+        let bf_answer = document.getElementById("change")
+        let af_answer = document.getElementById("changed")
+
+        function keypress_ivent(e) {
+            //いずれかのキーが押された時の処理
+            if (e.key === bf_answer.innerText.charAt(0)){
+                bf_answer.innerText = bf_answer.innerText.slice(1)
+                let elem = document.getElementById("changed")
+                elem.insertAdjacentHTML('beforeend', e.key);
+                
+                // 最後の1文字の入力が完了した場合
+                if(bf_answer.textContent.length==0){      
+                    let score_input = document.getElementById("add_score")
+                    let score = <%= score %>;
+                    let wordrandome = "<%= wordrandome %>"     
+                    score_input.value=score+wordrandome.length*8
+                    document.getElementById('form').submit();
+                }
+            // 改行が含まれる場合
+            }else if(bf_answer.innerHTML.slice(0,4)==="<br>" && e.key === bf_answer.innerHTML.charAt(4)){
+                bf_answer.innerHTML = bf_answer.innerHTML.replace("<br>","")
+                bf_answer.innerText = bf_answer.innerText.slice(1)
+                let elem = document.getElementById("changed")
+                elem.insertAdjacentHTML('beforeend', "<br>"+e.key);
+            }
+        console.log(af_answer.innerHTML)
+        console.log(bf_answer.innerHTML)    
+        }
+    </script>
+</body>
+</html>

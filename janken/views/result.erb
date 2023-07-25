@@ -1,0 +1,57 @@
+<%
+    output, raval = ""
+    if params[:janken]
+        output = params[:janken]
+    else
+        output = "なし"
+    end
+
+    select = ["グー","チョキ","パー"]
+    rival = select.sample
+    if rival==output
+        result = "結果：あいこです"
+        result2 = "あなた：#{output} vs 相手：#{rival}"
+    elsif output == "グー"
+        if rival == "チョキ"
+            result = "結果：勝ちです"
+            result2 = "あなた：#{output} vs 相手：#{rival}"
+        else
+            result = "結果：負けです"
+            result2 = "あなた：#{output} vs 相手：#{rival}"
+        end
+    elsif output == "チョキ"
+        if rival == "パー"
+            result = "結果：勝ちです"
+            result2 = "あなた：#{output} vs 相手：#{rival}"
+        else
+            result = "結果：負けです"
+            result2 = "あなた：#{output} vs 相手：#{rival}"
+        end
+    elsif output == "パー"
+        if rival == "グー"
+            result = "結果：勝ちです"
+            result2 = "あなた：#{output} vs 相手：#{rival}"
+        else
+            result = "結果：負けです"
+            result2 = "あなた：#{output} vs 相手：#{rival}"
+        end
+    else
+        result = "結果：判定不可です"
+        result2 = "選択してね"
+    end
+    
+%>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><%=result%></h2>
+    <h2><%=result2%></h1>
+
+</body>
+</html>

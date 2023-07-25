@@ -1,0 +1,33 @@
+<%
+    name, title, message = "" 
+    if params[:name]
+        name = params[:name]
+    end
+    if params[:title]
+        title = params[:title]
+    end
+    if params[:message]
+        message = ERB::Util.html_escape(params[:message]).gsub(/\r\n|\n|\r/,"<br>")
+    end
+%>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>解答ありがとう</h1>
+    <p>以下の内容で受け付けた</p>
+    <dl>
+        <dt>名前</dt>
+        <dd><%= name %></dd>
+        <dt>件名</dt>
+        <dd><%= title %></dd>
+        <dt>メッセージ</dt>
+        <dd><%= message %></dd>
+    </dl>
+</body>
+</html>
