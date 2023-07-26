@@ -4,7 +4,7 @@
 ・画像が綺麗に収まるようにする
 　%>
 <%
-wordlist = [["sql select文 表を照会する","SELECT 列名, 列名, 列名, ... FROM 表名 WHERE 検索条件 ORDER BY 並び順;<br>SELECT * FROM 表名 WHERE 検索条件 ORDER BY 並び順;"]["つかれた","tuka<br>reta"],["じかんをください","jikannwo<br>kudasai"],["きょうはあついです","kyouha<br>atuidesu"],["げんきがいっぱいです","genkiga<br>ippaidesu"],["それではもういちど","soredehamouitido"],["はらへった","harahetta"],["ねむい","nemui"] ,["ざぎんのしーすー","zaginnno<br>si-su-"],["もうたべられない","moutaberarenai"],["やさいましましのこいめで","yasaimasimasinokoimede"],["らーめんはのみもの","ra-mennhanomimono"]]
+wordlist = [["sql select文 表を照会する","select emp_name, birthday, sal, cast(sal * 12)as int from employee;"],["sql select文 to_char() 指定した書式の文字列型に変換","select emp_name, to_char(birthday, 'Day, Month DD, YYYY') from employee;"],["sql select文 to_char() 指定した書式の文字列型に変換","select emp_name, to_char(sal, '9,999,999.999') from employee;"],["sql select文 coalesce(式,値) nullなら値、そうでないなら式","select emp_name, birthday, sal + coalesce(comm, 0) from employee;"],["げんきがいっぱいです","genkiga<br>ippaidesu"],["それではもういちど","soredehamouitido"],["はらへった","harahetta"],["ねむい","nemui"] ,["ざぎんのしーすー","zaginnno<br>si-su-"],["もうたべられない","moutaberarenai"],["やさいましましのこいめで","yasaimasimasinokoimede"],["らーめんはのみもの","ra-mennhanomimono"]]
 random = wordlist.sample
 wordrandomk = random[0]
 wordrandome = random[1]
