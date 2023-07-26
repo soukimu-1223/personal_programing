@@ -1,10 +1,26 @@
 <%# 
 方針
-・スコアを初期を0にしてクリアすると更新していきたい
-・画像が綺麗に収まるようにする
+・サイバー寿司押
+・「ゲームを始める」に乗せると画像が反転する
+・コードを増やし、sql,ruby,aws,gitを分けてゲームにする
+・重複なしで出題
+・時間制限タイプにしたい
+・問題文の長さに応じて文字の大きさを変えたい
+・結果ページを作成
 　%>
 <%
-wordlist = [["sql select文 表を照会する","select emp_name, birthday, sal, cast(sal * 12)as int from employee;"],["sql select文 to_char() 指定した書式の文字列型に変換","select emp_name, to_char(birthday, 'Day, Month DD, YYYY') from employee;"],["sql select文 to_char() 指定した書式の文字列型に変換","select emp_name, to_char(sal, '9,999,999.999') from employee;"],["sql select文 coalesce(式,値) nullなら値、そうでないなら式","select emp_name, birthday, sal + coalesce(comm, 0) from employee;"],["げんきがいっぱいです","genkiga<br>ippaidesu"],["それではもういちど","soredehamouitido"],["はらへった","harahetta"],["ねむい","nemui"] ,["ざぎんのしーすー","zaginnno<br>si-su-"],["もうたべられない","moutaberarenai"],["やさいましましのこいめで","yasaimasimasinokoimede"],["らーめんはのみもの","ra-mennhanomimono"]]
+wordlist = [["sql  select文 表を照会する","select emp_name, birthday, sal, cast(sal * 12)as int from employee;"],
+["sql select文 to_char() 指定した書式の文字列型に変換","select emp_name, to_char(birthday, 'Day, Month DD, YYYY') from employee;"],
+["sql select文 to_char() 指定した書式の文字列型に変換","select emp_name, to_char(sal, '9,999,999.999') from employee;"],
+["sql select文 coalesce(式,値) nullなら値、そうでないなら式","select emp_name, birthday, sal + coalesce(comm, 0) from employee;"],
+["sql case式","select emp_name,<br>case<br>when gender = 1 then 'male' <br>else 'female' <br>end as gender<br>from employee;"],
+["sql order by","select * from employee order by sal desc"],
+["sql limit,offset","select * from employee order by sal desc limit 3 offset 1"],
+["sql where句like演算子","select * from customer<br>where address like '%osaka%';"],
+["sql where句like演算子","select * from customer<br>where address not like 'tokyoto%';"],
+["sql where句like演算子","select * from customer<br>where address like '_da%';"],
+["sql where句like演算子","select * from customer<br>where comm is not null;"]
+]
 random = wordlist.sample
 wordrandomk = random[0]
 wordrandome = random[1]
@@ -67,7 +83,7 @@ photo = photo_list.sample
     <div>
         <h2 class="score" ><%=p score%></h2>
         <h1 class="nomal" style="text_align: center;"><%=wordrandomk%></h1>
-        <h2 style="height: 80px;" class="nomal" style="text_align: center;">
+        <h2 style="height: 250px;" class="nomal" style="text_align: left;">
             <span id="changed"></span><span id="change"><%=wordrandome%></span>
         </h2>
         
