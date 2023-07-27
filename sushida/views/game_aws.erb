@@ -1,0 +1,130 @@
+<%# 
+方針
+・サイバー寿司押
+・「ゲームを始める」に乗せると画像が反転する
+・コードを増やし、sql,ruby,aws,gitを分けてゲームにする
+・重複なしで出題
+・時間制限タイプにしたい
+・問題文の長さに応じて文字の大きさを変えたい
+・結果ページを作成
+　%>
+<%
+wordlist = [["AWSとは<bs>ITサーバーのクラウドサービスの1つ。場所を貸すIaaS、設備も用意するPaaSである。OSのインストール、サーバーのセットアップ、webサーバーのセットアップ、PHP、Wordpress、MySQLのセットアップなどを数分で完了できる。世界に２６のリージョンがあり、それぞれにアベイラビリティゾーン（データセンター)がある。アベイラビリティゾーンを離れた場所に指定することで、災害リスクを減らすことができる。",
+"AWStoha<bs>ITsa-ba-nokuraudosa-bisuno1tu.basyowokasuIaaS,setubimoyouisuruPaaSdearu.OSnoinnsuto-ru,sa-ba-nosettoappu,websa-ba-nosettoappu,PHP,Wordpress,MySQLnosettoappunadowosuufunndekannryoudekiru.sekaini26nori-jonngaari,sorezoreniabeirabirithizo-nn(de-tasennta-)gaaru.abeirabirithizo-nnwohanaretabasyonisiteisurukotode,saigairisukuwoherasukotogadekiru."],
+["アンマネージドサービス","環境は与えられるが、アプリのインストールなどは自分で設定、管理していくことが必要。⇔マネージドサービスでは更新などが自動で行われる。"],
+["AWSアカウント","全権限を持ち全ての作業化可能"],
+["IAMアカウント","与えられた権限での作業のみ可能"],
+["サービスについて<br>・s3(simple storage service)","マネージドサービスに分類される。ストレージサービスであるが、付属機能として静的なページを設定できる。従量課金制で保存容量、データ転送量による。バケット（ドライブ)を作成し、そこにオブジェクト(ファイル)をアップロードする。"],
+["サービスについて<br>・e2(elastic compute cloud)","アンマネージドサービスで仮想サーバを構築できる。<br>メリットは①すぐに使える状態のサーバーが手に入る、②いらなくなったらいつでも廃棄できる"],
+["用語","仮想マシン=インスタンス<br>仮想ストレージ=EBS<br>システムイメージ=AMI<br>AWS専用ネットワーク=VPS(amazon virtual private cloud)<br>インスタンスタイプ=仮想マシンの性能<br>インスタンスサイズ=CPUやメモリの容量"],
+["仮想サーバー（インスタンス）の構築","容量(ストレージ)やどのネットワーク(VPC)と繋げるかを決める"],
+["LAMP環境","Linux(OS),Apache(webサーバー),MySQL/MariaDB(データベース),PHP(プログラム)でブログサイトが構築できる。"]
+]
+random = wordlist.sample
+wordrandomk = random[0]
+wordrandome = random[1]
+
+score = params[:score].to_i
+if params[:add_score]
+    score+=params[:add_score].to_i
+end
+
+
+intx = params[:input]
+photo_list =["1.jpeg","2.jpeg","3.jpeg","4.jpeg","5.jpeg","6.jpeg","7.jpeg","8.jpeg","9.jpeg","10.jpeg"]
+photo = photo_list.sample
+%>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body{
+        margin:0;
+        background-size:contain;
+        margin: 0 auto; 
+        width:50ex; 
+        height:400px;
+        background-image: url("/images/<%=photo%>");
+        background-repeat:  no-repeat;
+        background-position:center center; 
+        background-size:cover;                 
+        width:80%;                             
+        padding: 80px;
+        
+    }
+    div{
+        
+    }
+    .nomal{
+        background-color: rgba(255, 255, 255, 0.52); 
+        padding:5px;
+        text-align:center;
+    }
+    .score{
+        background-color: rgba(255, 255, 255, 0.52); 
+        width:5ex; 
+        padding:5px;
+        margin:0 0 0 auto;
+    }
+    a{
+        padding:5px
+    }
+    #changed{
+        color: red;
+    }
+    </style>
+</head>
+<body>
+    <div>
+        <h2 class="score" ><%=p score%></h2>
+        <h1 class="nomal" style="text_align: center;"><%=wordrandomk%></h1>
+        <h2 style="height: 250px;" class="nomal" style="text_align: left;">
+            <span id="changed"></span><span id="change"><%=wordrandome%></span>
+        </h2>
+        
+        <form action="/game_aws" method="get" id = "form">
+            <input id="add_score" type="hidden" name="add_score">
+            
+        </form>
+        <a class="score" href="/">トップに戻る</a>
+    </div>
+
+
+    <script>
+        document.addEventListener('keypress', keypress_ivent);
+        // 入力する文字の位置情報取得
+        let bf_answer = document.getElementById("change")
+        let af_answer = document.getElementById("changed")
+
+        function keypress_ivent(e) {
+            //いずれかのキーが押された時の処理
+            if (e.key === bf_answer.innerText.charAt(0)){
+                bf_answer.innerText = bf_answer.innerText.slice(1)
+                let elem = document.getElementById("changed")
+                elem.insertAdjacentHTML('beforeend', e.key);
+                
+                // 最後の1文字の入力が完了した場合
+                if(bf_answer.textContent.length==0){      
+                    let score_input = document.getElementById("add_score")
+                    let score = <%= score %>;
+                    let wordrandome = "<%= wordrandome %>"     
+                    score_input.value=score+wordrandome.length*8
+                    document.getElementById('form').submit();
+                }
+            // 改行が含まれる場合
+            }else if(bf_answer.innerHTML.slice(0,4)==="<br>" && e.key === bf_answer.innerHTML.charAt(4)){
+                bf_answer.innerHTML = bf_answer.innerHTML.replace("<br>","")
+                bf_answer.innerText = bf_answer.innerText.slice(1)
+                let elem = document.getElementById("changed")
+                elem.insertAdjacentHTML('beforeend', "<br>"+e.key);
+            }
+        console.log(af_answer.innerHTML)
+        console.log(bf_answer.innerHTML)    
+        }
+    </script>
+</body>
+</html>
