@@ -1,2 +1,6 @@
-<h1>Boards#show</h1>
-<p>Find me in app/views/boards/show.html.erb</p>
+<%= link_to "スレッド新規作成", new_board_path %>
+<hr>
+<h1><%= @board.title%></h1>
+<%= link_to "タイトルを編集する", edit_board_path %>
+<%= link_to "この掲示板を削除する", board_path(@board), method: :delete, data: {confirm: "本当に削除しますか？"}%>
+<hr>

@@ -1,2 +1,7 @@
-<h1>Boards#index</h1>
-<p>Find me in app/views/boards/index.html.erb</p>
+<h1>2chクローン</h1>
+<%= link_to "スレッド新規作成", "/boards/new" %>
+<hr>
+<% @boards.each do |f| %>
+    タイトル：<%= link_to f.title, board_path(f) %><br>
+    作成者：<%= link_to f.editor, board_path(f) %><br>
+<% end %>

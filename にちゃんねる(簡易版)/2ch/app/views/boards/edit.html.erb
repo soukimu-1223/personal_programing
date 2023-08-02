@@ -1,2 +1,8 @@
+<%= link_to @board.title, root_path %>
+<hr>
 <h1>Boards#edit</h1>
-<p>Find me in app/views/boards/edit.html.erb</p>
+<%= form_with model: @board do |f| %>
+    タイトル:<%= f.text_field :title %><br>
+    作成者名:<%= f.text_field :editor %><br>
+    <%= f.submit %>
+<% end %>
