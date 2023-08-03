@@ -1,5 +1,6 @@
   [1m[35m (289.9ms)[0m  [1m[35mCREATE DATABASE "channel2_development" ENCODING = 'unicode'[0m
   [1m[35m (92.0ms)[0m  [1m[35mCREATE DATABASE "channel2_test" ENCODING = 'unicode'[0m
+<<<<<<< HEAD
   [1m[35m (45.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
   [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5366461753888760385)[0m
@@ -155,6 +156,235 @@ Completed 500 Internal Server Error in 960ms (ActiveRecord: 0.0ms | Allocations:
 
   
 ActionView::Template::Error (Webpacker can't find application.js in /Users/sohki-kimura/Desktop/souki/personal_programing/にちゃんねる(簡易版)/2ch/public/packs/manifest.json. Possible causes:
+=======
+Started GET "/" for 127.0.0.1 at 2023-08-04 01:25:57 +0900
+  
+ActiveRecord::ConnectionNotEstablished (connection to server on socket "/tmp/.s.PGSQL.5432" failed: No such file or directory
+	Is the server running locally and accepting connections on that socket?
+):
+  
+activerecord (6.1.7.4) lib/active_record/connection_adapters/postgresql_adapter.rb:83:in `rescue in new_client'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `public_send'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `new_connection'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:926:in `checkout_new_connection'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:905:in `try_to_checkout_new_connection'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:866:in `acquire_connection'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:588:in `checkout'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:428:in `connection'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:1128:in `retrieve_connection'
+activerecord (6.1.7.4) lib/active_record/connection_handling.rb:327:in `retrieve_connection'
+activerecord (6.1.7.4) lib/active_record/connection_handling.rb:283:in `connection'
+activerecord (6.1.7.4) lib/active_record/migration.rb:611:in `connection'
+activerecord (6.1.7.4) lib/active_record/migration.rb:606:in `build_watcher'
+activerecord (6.1.7.4) lib/active_record/migration.rb:588:in `block in call'
+activerecord (6.1.7.4) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.7.4) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.7.4) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.7.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.7.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.7.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.7.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.7.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.7.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8) lib/rack/method_override.rb:24:in `call'
+rack (2.2.8) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.7.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.8) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+rack-mini-profiler (2.3.4) lib/mini_profiler/profiler.rb:393:in `call'
+webpacker (5.4.4) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.6) lib/rack/proxy.rb:87:in `call'
+railties (6.1.7.4) lib/rails/engine.rb:539:in `call'
+puma (5.6.6) lib/puma/configuration.rb:252:in `call'
+puma (5.6.6) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.6) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.6) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.6) lib/puma/server.rb:443:in `process_client'
+puma (5.6.6) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2023-08-04 01:28:04 +0900
+  
+ActiveRecord::ConnectionNotEstablished (connection to server on socket "/tmp/.s.PGSQL.5432" failed: No such file or directory
+	Is the server running locally and accepting connections on that socket?
+):
+  
+activerecord (6.1.7.4) lib/active_record/connection_adapters/postgresql_adapter.rb:83:in `rescue in new_client'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `public_send'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `new_connection'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:926:in `checkout_new_connection'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:905:in `try_to_checkout_new_connection'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:866:in `acquire_connection'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:588:in `checkout'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:428:in `connection'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:1128:in `retrieve_connection'
+activerecord (6.1.7.4) lib/active_record/connection_handling.rb:327:in `retrieve_connection'
+activerecord (6.1.7.4) lib/active_record/connection_handling.rb:283:in `connection'
+activerecord (6.1.7.4) lib/active_record/migration.rb:611:in `connection'
+activerecord (6.1.7.4) lib/active_record/migration.rb:606:in `build_watcher'
+activerecord (6.1.7.4) lib/active_record/migration.rb:588:in `block in call'
+activerecord (6.1.7.4) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.7.4) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.7.4) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.7.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.7.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.7.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.7.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.7.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.7.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8) lib/rack/method_override.rb:24:in `call'
+rack (2.2.8) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.7.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.8) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+rack-mini-profiler (2.3.4) lib/mini_profiler/profiler.rb:393:in `call'
+webpacker (5.4.4) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.6) lib/rack/proxy.rb:87:in `call'
+railties (6.1.7.4) lib/rails/engine.rb:539:in `call'
+puma (5.6.6) lib/puma/configuration.rb:252:in `call'
+puma (5.6.6) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.6) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.6) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.6) lib/puma/server.rb:443:in `process_client'
+puma (5.6.6) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2023-08-04 01:31:16 +0900
+  
+ActiveRecord::NoDatabaseError (connection to server on socket "/tmp/.s.PGSQL.5432" failed: FATAL:  database "channel2_development" does not exist
+):
+  
+activerecord (6.1.7.4) lib/active_record/connection_adapters/postgresql_adapter.rb:81:in `rescue in new_client'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `public_send'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `new_connection'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:926:in `checkout_new_connection'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:905:in `try_to_checkout_new_connection'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:866:in `acquire_connection'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:588:in `checkout'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:428:in `connection'
+activerecord (6.1.7.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:1128:in `retrieve_connection'
+activerecord (6.1.7.4) lib/active_record/connection_handling.rb:327:in `retrieve_connection'
+activerecord (6.1.7.4) lib/active_record/connection_handling.rb:283:in `connection'
+activerecord (6.1.7.4) lib/active_record/migration.rb:611:in `connection'
+activerecord (6.1.7.4) lib/active_record/migration.rb:606:in `build_watcher'
+activerecord (6.1.7.4) lib/active_record/migration.rb:588:in `block in call'
+activerecord (6.1.7.4) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.7.4) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.7.4) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.7.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.7.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.7.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.7.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.7.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.7.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8) lib/rack/method_override.rb:24:in `call'
+rack (2.2.8) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.7.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.8) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.7.4) lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+rack-mini-profiler (2.3.4) lib/mini_profiler/profiler.rb:393:in `call'
+webpacker (5.4.4) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.6) lib/rack/proxy.rb:87:in `call'
+railties (6.1.7.4) lib/rails/engine.rb:539:in `call'
+puma (5.6.6) lib/puma/configuration.rb:252:in `call'
+puma (5.6.6) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.6) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.6) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.6) lib/puma/server.rb:443:in `process_client'
+puma (5.6.6) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[35m (954.4ms)[0m  [1m[35mCREATE DATABASE "channel2_development" ENCODING = 'unicode'[0m
+  [1m[35m (403.0ms)[0m  [1m[35mCREATE DATABASE "channel2_test" ENCODING = 'unicode'[0m
+Started GET "/" for 127.0.0.1 at 2023-08-04 01:34:06 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/kimurasouki/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-6.1.7.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kimurasouki/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-6.1.7.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 45.2ms | Allocations: 474)
+Completed 200 OK in 94ms (Views: 49.8ms | ActiveRecord: 0.0ms | Allocations: 3670)
+
+
+Started GET "/rails/info/routes" for 127.0.0.1 at 2023-08-04 01:35:26 +0900
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /Users/kimurasouki/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-6.1.7.4/lib/rails/templates/layouts/application.html.erb
+  Rendering /Users/kimurasouki/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-6.1.7.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/kimurasouki/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb [42 times] (Duration: 111.1ms | Allocations: 7795)
+  Rendered /Users/kimurasouki/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 20.2ms | Allocations: 1309)
+  Rendered /Users/kimurasouki/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-6.1.7.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 223.3ms | Allocations: 14159)
+  Rendered layout /Users/kimurasouki/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-6.1.7.4/lib/rails/templates/layouts/application.html.erb (Duration: 226.7ms | Allocations: 14431)
+Completed 200 OK in 279ms (Views: 268.3ms | ActiveRecord: 0.0ms | Allocations: 15858)
+
+
+Started GET "/board" for 127.0.0.1 at 2023-08-04 01:35:50 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/board"):
+  
+Started GET "/boards" for 127.0.0.1 at 2023-08-04 01:35:56 +0900
+Processing by BoardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering boards/index.html.erb within layouts/application
+  Rendered boards/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 150)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+/Users/kimurasouki/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/webpacker-5.4.4/lib/webpacker/runner.rb:13:in ``': No such file or directory - yarn (Errno::ENOENT)
+	from /Users/kimurasouki/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/webpacker-5.4.4/lib/webpacker/runner.rb:13:in `initialize'
+	from /Users/kimurasouki/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/webpacker-5.4.4/lib/webpacker/runner.rb:6:in `new'
+	from /Users/kimurasouki/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/webpacker-5.4.4/lib/webpacker/runner.rb:6:in `run'
+	from ./bin/webpack:17:in `block in <main>'
+	from ./bin/webpack:16:in `chdir'
+	from ./bin/webpack:16:in `<main>'
+
+  Rendered layout layouts/application.html.erb (Duration: 1189.1ms | Allocations: 37884)
+Completed 500 Internal Server Error in 1209ms (ActiveRecord: 0.0ms | Allocations: 39305)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /Users/kimurasouki/Desktop/vscodepy_11/personal_programing-1/にちゃんねる(簡易版)/2ch/public/packs/manifest.json. Possible causes:
+>>>>>>> 313effb (routes の誤字修正)
 1. You want to set webpacker.yml value of compile to true for your environment
    unless you are using the `webpack -w` or the webpack-dev-server.
 2. webpack has not yet re-run to reflect updates.
@@ -173,6 +403,7 @@ Your manifest contains:
     13:   <body>
   
 app/views/layouts/application.html.erb:10
+<<<<<<< HEAD
 Started GET "/boards" for 127.0.0.1 at 2023-08-02 20:44:45 +0900
   [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Processing by BoardsController#index as HTML
@@ -1758,3 +1989,5 @@ Did you mean?  controller
   
 app/controllers/boards_controller.rb:52:in `params_board'
 app/controllers/boards_controller.rb:14:in `create'
+=======
+>>>>>>> 313effb (routes の誤字修正)
